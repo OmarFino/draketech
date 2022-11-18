@@ -5,8 +5,8 @@ const getUsersLogin = async (emailUser, password) => {
     const query = await knex
         .select(
             'idUser',
-            'nameUser',
-            'roleUser'
+            'nombreUser',
+            'fkRole'
         )
         .from('user')
         .where({

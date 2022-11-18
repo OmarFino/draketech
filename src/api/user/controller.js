@@ -16,13 +16,13 @@ const getuser = async (req, res) => {
 const postUser = async (req, res) => {
   try {
     const {
-      nameUser,
+      nombreUser,
       emailUser,
       password
     } = req.body;
     
     const data = await repo.postUser(
-      nameUser,
+      nombreUser,
       emailUser,
       password
     );

@@ -12,7 +12,7 @@ module.exports = {
     try {
       token = token.replace('Bearer ', '');
       const decoded = await jwt.verify(token, process.env.KEY_SECRET);
-      decoded.data.roleUser === 'User'
+      decoded.data.fkRole === 1
         ? next()
         : res.status(401).send({
             message: 'No tiene autorización para esta solicitud'

@@ -8,12 +8,12 @@ const getuser = async () => {
 };
 
 const postUser = async (
-  nameUser,
+  nombreUser,
   emailUser,
   password) => {
   return knex('user')
     .insert({
-      nameUser:nameUser,
+      nombreUser:nombreUser,
       emailUser:emailUser,
       password:password
     })

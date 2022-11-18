@@ -2,8 +2,7 @@ const repo = require('./repository');
 
 const getProduct = async (req, res) => {
   try {
-    const { idUSer } = req.params
-    const data = await repo.getProduct(idUSer);
+    const data = await repo.getProduct();
     res.status(200).send(data);
   } catch (error) {
     res.send(error);
@@ -13,16 +12,14 @@ const getProduct = async (req, res) => {
 const postProduct = async (req, res) => {
   try {
     const {
-      nameProduct,
-      priceProduct,
-      imageProduct,
+      nombreProducto,
+      precioProducto,
       idUser
     } = req.body;
 
     const data = await repo.postProduct(
-      nameProduct,
-      priceProduct,
-      imageProduct,
+      nombreProducto,
+      precioProducto,
       idUser
     );
     if (data != "") {
@@ -38,16 +35,14 @@ const postProduct = async (req, res) => {
 const putProduct = async (req, res) => {
   try {
     const {
-      nameProduct,
-      priceProduct,
-      imageProduct,
+      nombreProducto,
+      precioProducto,
       idProduct
     } = req.body;
 
     const data = await repo.putProduct(
-      nameProduct,
-      priceProduct,
-      imageProduct,
+      nombreProducto,
+      precioProducto,
       idProduct
     );
     if (data != "") {

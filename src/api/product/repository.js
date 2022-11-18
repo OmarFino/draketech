@@ -4,34 +4,30 @@ const getProduct = async (idUSer) => {
   const query = await knex
     .select()
     .from('product')
-    .where({stateProduct: 'A', user_idUser:idUSer})
+    .where({stateProducto: 'A'})
   return query;
 };
 
 const postProduct = async (
-  nameProduct,
-  priceProduct,
-  imageProduct,
+  nombreProducto,
+  precioProducto,
   idUser) => {
   return knex('product')
     .insert({
-      nameProduct:nameProduct,
-      priceProduct:priceProduct,
-      imageProduct:imageProduct,
+      nombreProducto:nombreProducto,
+      precioProducto:precioProducto,
       user_idUser:idUser
     })
 };
 
 const putProduct = async (
-  nameProduct,
-  priceProduct,
-  imageProduct,
+  nombreProducto,
+  precioProducto,
   idProduct) => {
   return knex('product')
     .update({
-      nameProduct:nameProduct,
-      priceProduct:priceProduct,
-      imageProduct:imageProduct,
+      nombreProducto:nombreProducto,
+      precioProducto:precioProducto,
     })
     .where({idProduct:idProduct})
 };
@@ -40,7 +36,7 @@ const deleteProduct = async (
   idProduct) => {
   return knex('product')
     .update({
-      stateProduct: 'I',
+      stateProducto: 'I',
     })
     .where({idProduct:idProduct})
 };
